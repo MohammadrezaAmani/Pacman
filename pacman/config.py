@@ -1,0 +1,10 @@
+class Consts:
+    GHOST1 = "G1"
+    GHOST2 = "G2"
+    DOT = "."
+    WALL = "#"
+    PACMAN = "P"
+    UP = "UP"
+    DOWN = "DOWN"
+    LEFT = "LEFT"
+    RIGHT = "RIGHT"
