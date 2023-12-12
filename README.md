@@ -1,7 +1,7 @@
 # Pacman
 
 **Description:**
-Pacman Solver is an advanced implementation of the classic Pacman game, featuring a fast solver utilizing the Minimax algorithm, Alpha-Beta pruning, and A* heuristic. This project is designed with modularity and object-oriented principles in mind, providing a well-structured and efficient solution.
+    Pacman Solver is an advanced implementation of the classic Pacman game, featuring a fast solver utilizing the Minimax algorithm, Alpha-Beta pruning, and A* heuristic. This project is designed with modularity and object-oriented principles in mind, providing a well-structured and efficient solution.
 
 ## Features
 
@@ -17,27 +17,27 @@ Pacman Solver is an advanced implementation of the classic Pacman game, featurin
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/MohammadrezaAmani/Pacman.git
-```
+   ```bash
+   git clone https://github.com/MohammadrezaAmani/Pacman.git
+   ```
 
 2. Navigate to the project directory:
 
-```bash
-cd Pacman
-```
+   ```bash
+   cd Pacman
+   ```
 
 3. Install dependencies:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Usage
 
-```python
-python main.py
-```
+   ```python
+   python main.py
+   ```
 
 This command initiates the Pacman Solver, allowing it to demonstrate its capabilities on a sample Pacman maze.
 
@@ -53,11 +53,11 @@ The solver's behavior can be configured through the following parameters:
 
 Contributions are welcome! If you'd like to enhance the project or fix any issues, please follow these steps:
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/your-feature`).
-5. Open a pull request.
+  1. Fork the repository.
+  2. Create a new branch (`git checkout -b feature/your-feature`).
+  3. Commit your changes (`git commit -m 'Add some feature'`).
+  4. Push to the branch (`git push origin feature/your-feature`).
+  5. Open a pull request.
 
 ## License
 
@@ -69,4 +69,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## Contact
 
-For any inquiries, please contact [more.amani@yahoo.com].
+For any inquiries, please contact [more.amani@yahoo.com](mainto:more.amani@yahoo.com).
