@@ -9,7 +9,7 @@
 
 - **Alpha-Beta Pruning:** Optimizes the Minimax algorithm by eliminating suboptimal branches, improving performance without compromising accuracy.
 
-- **A* Heuristic:**Enhances decision-making with the A* heuristic, allowing Pacman to make informed choices based on an efficient cost estimation.
+- **A* Heuristic:** Enhances decision-making with the A* heuristic, allowing Pacman to make informed choices based on an efficient cost estimation.
 
 - **Modular Design:** The project is organized using Object-Oriented Programming (OOP) principles, promoting code readability, maintainability, and ease of extension.
 
