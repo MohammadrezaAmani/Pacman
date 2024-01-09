@@ -1,16 +1,35 @@
-from pacman.agent import Agent
+from typing import List
+from pacman.agent import Agent, Dot, Ghost, Pacman
 from pacman.config import Consts
 from pacman.utils import convert_char
 
 
 class Board:
     def __init__(self, board: str) -> None:
+        """
+        Initialize the Board object.
+
+        Args:
+            board (str): The string representation of the board.
+
+        Returns:
+            None
+        """
         self._board = []
+        self.pacman: Pacman
+        self.ghosts: List[Ghost] = []
         self.size = tuple()
         self.board = board
+        
 
     @property
     def board(self) -> str:
+        """
+        Get the current state of the board.
+
+        Returns:
+            str: The current state of the board.
+        """
         return self._board
 
     @board.setter
@@ -25,55 +44,57 @@ class Board:
             for j in range(len(value[i])):
                 agent_type = convert_char(value[i][j])
                 if agent_type:
-                    self._board.append(agent_type(i, j))
+                    if agent_type == Ghost:
+                        g = Ghost(value[i][j], i, j)
+                        self._board.append(g)
+                        self.ghosts.append(g)
+                        Consts.GHOSTS.append(value[i][j])
+                    elif agent_type == Pacman:
+                        self.pacman = Pacman(i, j)
+                        self._board.append(self.pacman)
+                    else:
+                        self._board.append(agent_type(i, j))
         self.size = (len(value), len(value[0]))
+        
 
-    def find(self, x: int, y: int):
-        for i in range(len(self._board)):
-            if self._board[i].is_in(x, y):
-                return i
+    def __str__(self) -> str:
+        """
+        Return the string representation of the board.
 
-    def find_thing(self, thing):
-        if isinstance(thing, Agent):
-            return self.find(thing.x, thing.y)
-        elif isinstance(thing, str):
-            for i in range(len(self._board)):
-                if self._board[i].name == thing:
-                    return i
+        Returns:
+            str: The string representation of the board.
+        """
+        board = ""
+        for i in range(self.size[0]):
+            for j in range(self.size[1]):
+                agent = next((a for a in self._board if a.is_in(i, j)), None)
+                board += agent.name if agent else "."
+            board += "\n"
+        return board
 
-    def manhattan(self, thing: Agent, thing2: Agent):
-        return abs((thing.x - thing2.x) % self.size[0]) + abs(
-            (thing.y - thing2.y) % self.size[1]
-        )
+    def is_finished(self) -> bool:
+        """
+        Check if the game is finished.
 
-    def replace(self, thing: Agent, thing2: Agent):
-        thing1_in_board = self.find_thing(thing)
-        thing2_in_board = self.find_thing(thing2)
-        if thing1_in_board is not None and thing2_in_board is not None:
-            x, y = self._board[thing1_in_board].location
-            self._board[thing1_in_board].move(
-                self._board[thing2_in_board].x, self._board[thing2_in_board].y
-            )
-            self._board[thing2_in_board].move(x, y)
+        Returns:
+            bool: True if the game is finished, False otherwise.
+        """
+        if not any(isinstance(a, Dot) for a in self._board):
             return True
-        return False
 
-    def fake_replace(self, thing: Agent, thing2: Agent):
-        newboard = Board(self)
-        newboard.replace(thing, thing2)
-        return newboard
+        # if ghost and pacman are in the same position
 
-    def find_nearest(self, thing: Agent, thing2: Agent):
-        # TODO: Implement this method
-        pass
+    def __repr__(self) -> str:
+        return self.__str__()
+    
+    def display(self):
+        print(self.__str__())
+    
+    def turn_char(self, depth: int, Ghosts: list = None) -> int:
+        if Ghosts is None:
+            Ghosts = self.ghosts
+        return {
+            0: Consts.PACMAN,
+            **{i: Consts.GHOSTS[i - 1] for i in range(1, len(Ghosts) + 1)},
+        }[depth % (len(Ghosts) + 1)]
 
-    def move(self, thing: Agent, direction: str):
-        thing_in_board = self.find_thing(thing)
-        if direction == Consts.UP:
-            self._board[thing_in_board].up()
-        elif direction == Consts.DOWN:
-            self._board[thing_in_board].down()
-        elif direction == Consts.LEFT:
-            self._board[thing_in_board].left()
-        elif direction == Consts.RIGHT:
-            self._board[thing_in_board].right()

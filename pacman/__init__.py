@@ -1,7 +1,7 @@
-from pacman.agent import Agent, Dot, Ghost1, Ghost2, Pacman, Wall
+from pacman.agent import Agent, Dot, Ghost, Pacman, Wall
+from pacman.algorithm import evaluate  # minimax_alpha_beta,
 from pacman.algorithm import (
     a_star_search,
-    evaluate,  # minimax_alpha_beta,
     heuristic,
     minimax,
     minimax_,
@@ -17,8 +17,7 @@ __all__ = [
     "Consts",
     "Agent",
     "Pacman",
-    "Ghost1",
-    "Ghost2",
+    "Ghost",
     "Dot",
     "Wall",
     "convert_char",

@@ -1,6 +1,11 @@
+from typing import List
+
+
 class Consts:
-    GHOST1 = "G1"
-    GHOST2 = "G2"
+    """
+    Constants used in the Pacman game.
+    """
+
     DOT = "."
     WALL = "#"
     PACMAN = "P"
@@ -8,3 +13,4 @@ class Consts:
     DOWN = "DOWN"
     LEFT = "LEFT"
     RIGHT = "RIGHT"
+    GHOSTS: List[str] = []

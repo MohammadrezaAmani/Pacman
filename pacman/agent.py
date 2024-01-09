@@ -47,7 +47,7 @@ class Agent:
         return f"{self.name}"
 
     def __repr__(self) -> str:
-        return f"{type(self).__name__!r}({self.x},{self.y})"
+        return f"{type(self).__name__}({self.x},{self.y})"
 
 
 class Pacman(Agent):
@@ -56,24 +56,15 @@ class Pacman(Agent):
             Consts.PACMAN,
             x,
             y,
-            enemy=[Consts.GHOST1, Consts.GHOST2],
+            enemy=[Ghost],
             favorite=Consts.DOT,
             pts=1,
         )
 
 
-class Ghost1(Agent):
-    def __init__(self, x: int, y: int) -> None:
-        super().__init__(
-            Consts.GHOST1, x, y, enemy=None, favorite=[Consts.PACMAN], pts=-1
-        )
-
-
-class Ghost2(Agent):
-    def __init__(self, x: int, y: int) -> None:
-        super().__init__(
-            Consts.GHOST2, x, y, enemy=None, favorite=[Consts.PACMAN], pts=-1
-        )
+class Ghost(Agent):
+    def __init__(self, name: str, x: int, y: int) -> None:
+        super().__init__(name, x, y, enemy=None, favorite=[Consts.PACMAN], pts=-1)
 
 
 class Dot(Agent):
