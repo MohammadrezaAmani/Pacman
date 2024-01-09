@@ -1,5 +1,5 @@
-from pacman.config import Consts
 from pacman.agent import Agent
+from pacman.config import Consts
 from pacman.utils import convert_char
 
 

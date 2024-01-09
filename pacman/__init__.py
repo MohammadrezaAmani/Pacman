@@ -1,18 +1,17 @@
-from pacman.config import Consts
-from pacman.agent import Agent, Pacman, Ghost1, Ghost2, Dot, Wall
-from pacman.utils import convert_char
-from pacman.board import Board
-from pacman.game import Game
+from pacman.agent import Agent, Dot, Ghost1, Ghost2, Pacman, Wall
 from pacman.algorithm import (
-    minimax_decision,
-    minimax,
-    # minimax_alpha_beta,
-    evaluate,
-    heuristic,
     a_star_search,
-    reconstruct_path,
+    evaluate,  # minimax_alpha_beta,
+    heuristic,
+    minimax,
     minimax_,
+    minimax_decision,
+    reconstruct_path,
 )
+from pacman.board import Board
+from pacman.config import Consts
+from pacman.game import Game
+from pacman.utils import convert_char
 
 __all__ = [
     "Consts",

@@ -1,8 +1,9 @@
 import math
+
 from pacman.agent import Dot
-from pacman.utils import turn_char
 from pacman.board import Board
 from pacman.config import Consts
+from pacman.utils import turn_char
 
 
 def evaluate(board: Board, agent: str) -> int:

@@ -1,7 +1,8 @@
 import math
+
+from pacman.algorithm import minimax
 from pacman.board import Board
 from pacman.config import Consts
-from pacman.algorithm import minimax
 
 
 class Game:

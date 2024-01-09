@@ -1,5 +1,5 @@
+from pacman.agent import Agent, Dot, Ghost1, Ghost2, Pacman, Wall
 from pacman.config import Consts
-from pacman.agent import Agent, Pacman, Ghost1, Ghost2, Dot, Wall
 
 CONVERT_TABLE = {
     Consts.GHOST1: Ghost1,
