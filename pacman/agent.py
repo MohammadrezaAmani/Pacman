@@ -10,16 +10,26 @@ class Agent:
         enemy: str = None,
         favorite: str = None,
         pts: int = None,
+        Moves: list = None,
     ) -> None:
         self.name = name
         self.x = x
         self.y = y
         self.enemy = enemy
         self.favorite = favorite
+        self.moves = Moves if Moves else [self.up, self.down, self.right, self.left]
 
     def move(self, x: int, y: int):
         self.x = x
         self.y = y
+
+    def move_dir(self, dir: str):
+        {
+            Consts.UP: self.up,
+            Consts.DOWN: self.down,
+            Consts.RIGHT: self.right,
+            Consts.LEFT: self.left,
+        }[dir]()
 
     def up(self):
         self.y -= 1
@@ -56,7 +66,7 @@ class Pacman(Agent):
             Consts.PACMAN,
             x,
             y,
-            enemy=[Ghost],
+            enemy=[],
             favorite=Consts.DOT,
             pts=1,
         )
