@@ -46,6 +46,8 @@ class Board:
                 for agent in value._board
                 if not isinstance(agent, Pacman) and not isinstance(agent, Ghost)
             ]
+            self._board.append(self.pacman)
+            self._board.extend(self.ghosts)
             self.size = value.size
             return
         value = value.strip().split("\n")
@@ -208,6 +210,7 @@ class Board:
 
     def find_nearest(self, agent: Agent, agent_type: type) -> Agent:
         nearest = None
+        print(type(agent_type))
         for a in self._board:
             if isinstance(a, agent_type):
                 if nearest is None or self.manhatan(agent, a) < self.manhatan(
@@ -222,6 +225,8 @@ class Board:
                 return i
 
     def evaluate(self, agent: Agent) -> str:
+        print(agent)
+        print(agent.favorite)
         favorite = self.find_nearest(agent, agent.favorite)
         enemies = []
         if isinstance(agent.enemy, list):
@@ -263,6 +268,8 @@ class Board:
                 board = self.deepcopy()
                 agent_copy = board.get(agent)
                 print(board)
+                print(agent, type(agent))
+                print(agent_copy, type(agent_copy))
                 agent_copy.move_dir(move)
                 score = board.minimax(depth - 1, agent_copy, False)
                 best_score = max(score, best_score)
