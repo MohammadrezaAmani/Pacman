@@ -1,4 +1,5 @@
 import random
+
 from pacman.board import Board
 from pacman.config import Consts
 

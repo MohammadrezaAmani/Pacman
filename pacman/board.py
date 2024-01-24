@@ -1,4 +1,3 @@
-import copy
 import math
 import os
 from typing import List
@@ -276,7 +275,6 @@ class Board:
                 agent_copy = board.get(agent)
                 agent_copy.move_dir(move)
                 while ghost_pointer < len(board.ghosts):
-
                     best_score = min(score, best_score)
             return best_score
 
