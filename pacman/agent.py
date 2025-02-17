@@ -30,12 +30,16 @@ class Agent:
             Consts.RIGHT: self.right,
             Consts.LEFT: self.left,
         }[
-            {
-                0: Consts.UP,
-                1: Consts.DOWN,
-                2: Consts.RIGHT,
-                3: Consts.LEFT,
-            }[dir] if isinstance(dir, int) else dir
+            (
+                {
+                    0: Consts.UP,
+                    1: Consts.DOWN,
+                    2: Consts.RIGHT,
+                    3: Consts.LEFT,
+                }[dir]
+                if isinstance(dir, int)
+                else dir
+            )
         ]()
 
     def up(self):
